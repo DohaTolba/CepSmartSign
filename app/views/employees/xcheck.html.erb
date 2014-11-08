@@ -1,0 +1,34 @@
+<h1>ckeck sign</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', signs_path %>
+
+<div class="center">
+  <h1> Employees signing for: <%= Time.now.strftime("%m-%d-%y ")%> </h1>
+<table>
+  <thead>
+    <tr>
+      <th>Employee Name</th>
+      <th>In</th>
+      <th>Out</th>
+      
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employees.each do |employee| %>
+      <tr>
+        <td><%= employee.full_name %></td>
+        <td><%= link_to 'check in', new_sign_path(employee) %></td>
+        <td><%= link_to 'check out', edit_sign_path(employee) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Employee', new_employee_path %>
+</div>

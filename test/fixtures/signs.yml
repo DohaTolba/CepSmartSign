@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  employee_id: MyString
+  date: 2014-10-29
+  check_in: 2014-10-29 13:30:50
+  check_out: 2014-10-29 13:30:50
+
+two:
+  employee_id: MyString
+  date: 2014-10-29
+  check_in: 2014-10-29 13:30:50
+  check_out: 2014-10-29 13:30:50

@@ -1,0 +1,11 @@
+<h1>  Please select your name, then press check. </h1>
+
+<%= form_tag(:action => 'check') do %>
+<p>
+ <%# select("employee", "id", Employee.all.collect {|e| [e.full_name, e.id] }, {include_blank: true}) %>
+  <%= select("employee", "id", Employee.order("first_name").collect {|e| [e.full_name, e.id] }, {include_blank: true}) %>
+</p>
+<p>
+  <%= submit_tag("check") %>
+</p>  
+<% end %>

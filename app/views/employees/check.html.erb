@@ -1,0 +1,19 @@
+
+<div class="center">
+  <h1> Date: <%= Time.now.strftime("%m-%d-%y ")%> </h1>
+    <% status = @employee.check_today_sign %>
+ 
+  <% if status == 0 %>
+  
+  <h1> Al Salam Alikom <%= @employee.full_name %> , please sign in. </h1>
+
+    <%= render :partial => "check_in", :locals =>{:sign => Sign.new( :employee_id => @employee.id, :date => Date.today)} %>
+ 
+  
+  <% else %>
+  <h1>Jazakom Allah Khayran <%= @employee.full_name %>, please sign out </h1>
+  
+  <%= render :partial => "check_out", :locals =>{:sign => @employee.signs.last} %>
+  
+  <% end %>
+</div>

@@ -1,0 +1,13 @@
+<h1>Listing employees working hours for the period: </h1>
+
+<%= form_tag(:action => 'payroll') do %>
+<p>
+From: <%= date_select("report", "from")%>
+</p>
+<p>
+To   :   <%= date_select("report", "to") %>
+</p>
+<p>
+<%= submit_tag("Report") %>
+</p>
+<% end %>

@@ -1,0 +1,35 @@
+<div class="center">
+<%= form_for(sign) do |f| %>
+  <% if sign.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sign.errors.count, "error") %> prohibited this sign from being saved:</h2>
+
+      <ul>
+      <% sign.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.hidden_field :employee_id %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :date %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :check_in %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :check_out %><br>
+    <%= f.time_select("check_out", ampm: true) %>
+  </div>
+  
+  <br>
+  <div class="actions">
+    <%= f.submit "check out"%>
+  </div>
+<% end %>
+</div>

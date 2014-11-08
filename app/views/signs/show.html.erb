@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Employee:</strong>
+  <%= @sign.employee_id %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @sign.date %>
+</p>
+
+<p>
+  <strong>Check in:</strong>
+  <%= @sign.check_in.strftime("%I:%M %p") %>
+</p>
+
+<p>
+  <strong>Check out:</strong>
+  <% if @sign.check_out != nil %>
+  <%= @sign.check_out.strftime("%I:%M %p") %>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_sign_path(@sign) %> |
+<%= link_to 'Back', signs_path %>

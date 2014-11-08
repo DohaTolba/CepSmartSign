@@ -1,0 +1,39 @@
+<h1>Employees working hours for the period from <%= @from%> to <%= @to%></h1>
+<p>
+  Download:
+  <%= link_to "CSV", employees_path(format: "csv") %> |
+  <%= link_to "Excel", payrollxls_path(format: "xls", :locals =>{:from => @from, :to => @to})%>
+
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Working hours</th>
+      <th>Salary</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employees.each do |employee| %>
+      <tr>
+        <td><%= employee.first_name %></td>
+        <td><%= employee.last_name %></td>
+        <% x = employee.working_hours( @from, @to )%>
+        <td><%= x[0] %></td>
+        <td><%= x[1] %></td>
+        
+        <td><%= link_to 'Show', employee %></td>
+        <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
+        <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Employee', new_employee_path %>
